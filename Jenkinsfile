@@ -5,7 +5,7 @@ pipeline {
 	
 	tools {
 		jdk "JDK 11"   /* may need to be adapted */
-		maven "Maven 3"   /* may need to be adapted */
+		maven "Maven 3.8"   /* may need to be adapted */
 	}
     
     parameters {
@@ -37,8 +37,8 @@ pipeline {
 		stage("Analyze") {
 			steps {
 				script {
-					def sonarQubeScannerHome = tool "SonarQube Scanner 4"   /* may need to be adapted */
-					withSonarQubeEnv("SonarQube 8") {   /* may need to be adapted */
+					def sonarQubeScannerHome = tool "SonarQube Scanner 4.6"   /* may need to be adapted */
+					withSonarQubeEnv("SonarQube 8.9") {   /* may need to be adapted */
 						bat "${sonarQubeScannerHome}/bin/sonar-scanner"
 					}
 				}
