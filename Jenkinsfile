@@ -44,6 +44,19 @@ pipeline {
 				}
 			}
 		}
+		
+		stage("Deliver") {
+			steps {
+				script {
+					/* NOTE: if Windows is used as operating system, remove <DOCKER-HOME>\bin\docker (i.e. file without extension) as workaround */
+					
+					withDockerRegistry(toolName: "Docker 20", credentialsId: "docker") {   /* may need to be adapted */
+						def image = docker.build("lion78at/personwebapp", "--no-cache .")
+						image.push()
+					}
+				}
+			}
+		}		
 	}
 	
 	post {
