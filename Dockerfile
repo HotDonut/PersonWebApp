@@ -1,7 +1,7 @@
 FROM openjdk:11-jre-slim
 
 LABEL company="technikumwien.at" \
-      author="Bernhard"
+      author="Lukas"
 
 WORKDIR /app
 

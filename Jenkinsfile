@@ -50,8 +50,8 @@ pipeline {
 				script {
 					/* NOTE: if Windows is used as operating system, remove <DOCKER-HOME>\bin\docker (i.e. file without extension) as workaround */
 					
-					withDockerRegistry(toolName: "Docker 20", credentialsId: "docker") {   /* may need to be adapted */
-						def image = docker.build("lion78at/personwebapp", "--no-cache .")
+					withDockerRegistry(toolName: "Docker 20", credentialsId: "docker2") {   /* may need to be adapted */
+						def image = docker.build("hotdonut/personwebapp", "--no-cache .")
 						image.push()
 					}
 				}
